@@ -1,0 +1,291 @@
+:root {
+  --blood-red: #8a0303;
+  --bright-red: #ff2222;
+  --dark-panel: #121212;
+  /* Crisp, solid dark color for the reading area */
+  --text-color: #e4e4e4;
+  /* Bright, legible text */
+}
+
+body {
+  margin: 0;
+  font-family: 'Lora', serif;
+  color: var(--text-color);
+  background: url("images/bg1.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+  transition: background-image 1.5s ease-in-out;
+  /* Smooth background crossfade */
+}
+
+/* NOTE: The 'body::before' dimming screen has been completely removed! 
+  Your backgrounds will now be at 100% brightness.
+*/
+
+/* Fog animation with screen blend mode to look like real mist over the bright background */
+.fog {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: url("images/fog.png") repeat-x;
+  opacity: 0.4;
+  animation: fogMove 120s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+
+@keyframes fogMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-1000px);
+  }
+}
+
+/* Header & Title */
+.title {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 52px;
+  color: #ffffff;
+  text-shadow: 0 0 15px var(--blood-red), 2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 5px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/* --- ADVANCED CLEAR-CUT LAYOUT --- */
+.layout {
+  display: flex;
+  height: calc(100vh - 150px);
+  /* Stretches dynamically to remove the blank space at the bottom */
+  width: 96%;
+  max-width: 1800px;
+  margin: 0 auto;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sidebar - Solid and Sharp */
+.sidebar {
+  width: 280px;
+  background: var(--dark-panel);
+  border: 1px solid rgba(138, 3, 3, 0.5);
+  /* Crisp red border */
+  border-radius: 4px;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.sidebar h3 {
+  font-family: 'Cinzel', serif;
+  color: var(--bright-red);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--blood-red);
+  padding-bottom: 10px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 15px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  font-size: 16px;
+  color: #aaa;
+  letter-spacing: 1px;
+}
+
+.sidebar li:hover {
+  background: rgba(255, 34, 34, 0.1);
+  color: #fff;
+  padding-left: 20px;
+  border-left: 2px solid rgba(255, 34, 34, 0.5);
+}
+
+.sidebar li.active {
+  color: var(--bright-red);
+  border-left: 4px solid var(--bright-red);
+  background: rgba(138, 3, 3, 0.15);
+  font-weight: bold;
+}
+
+/* Reader - Clear Cut Reading Canvas */
+.reader {
+  flex: 1;
+  background: var(--dark-panel);
+  border: 1px solid rgba(80, 80, 80, 0.4);
+  border-radius: 4px;
+  padding: 40px 80px;
+  overflow-y: auto;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+}
+
+#chapterTitle {
+  font-family: 'Cinzel', serif;
+  color: #ffffff;
+  margin-top: 0;
+  font-size: 34px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 15px;
+}
+
+#chapterContent {
+  margin-top: 30px;
+  line-height: 2;
+  font-size: 20px;
+  min-height: 400px;
+  color: var(--text-color);
+}
+
+/* Controls & Nav Buttons */
+.controls {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  font-family: 'Cinzel', serif;
+}
+
+#chapterIndicator {
+  margin: 0 30px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.nav-btn {
+  background: #1a1a1a;
+  border: 1px solid rgba(138, 3, 3, 0.5);
+  color: #fff;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-btn:hover {
+  border-color: var(--bright-red);
+  background: #3a0505;
+  box-shadow: 0 0 15px rgba(255, 34, 34, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Progress Bar */
+#progressBar {
+  height: 2px;
+  background: var(--bright-red);
+  width: 0%;
+  margin-top: 15px;
+  box-shadow: 0 0 15px var(--bright-red);
+  transition: width 0.6s ease-in-out;
+}
+
+/* Audio Orb */
+.floating-audio {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  border: 1px solid #555;
+  color: #aaa;
+  cursor: pointer;
+  transition: all 0.4s;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.floating-audio svg {
+  width: 28px;
+  height: 28px;
+  transition: all 0.3s;
+}
+
+.floating-audio:hover {
+  border-color: #888;
+  color: #fff;
+  transform: scale(1.1) translateY(-5px);
+}
+
+.floating-audio.playing {
+  border-color: var(--bright-red);
+  color: #fff;
+  background: #4a0505;
+  animation: floatPulse 2.5s infinite;
+}
+
+@keyframes floatPulse {
+  0% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8), 0 0 0 0 rgba(255, 34, 34, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8), 0 0 20px 5px rgba(255, 34, 34, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8), 0 0 0 0 rgba(255, 34, 34, 0);
+  }
+}
+
+.sound-waves {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mute-cross {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.floating-audio.playing .sound-waves {
+  opacity: 1;
+}
+
+.floating-audio.playing .mute-cross {
+  opacity: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+  border-left: 1px solid #222;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blood-red);
+}

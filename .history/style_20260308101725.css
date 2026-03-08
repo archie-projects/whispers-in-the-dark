@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500&display=swap');
+
+:root {
+  --blood-red: #8a0303;
+  --bright-red: #ff2222;
+  --text-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Crimson Text', serif;
+  color: var(--text-color);
+  background: url("images/bg1.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+  transition: background-color 0.5s ease, background-image 1.5s ease-in-out;
+}
+
+/* Alternate Font Class */
+body.alt-font {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body.alt-font #chapterContent {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  line-height: 2.3;
+}
+
+body.alt-font .sidebar li {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+/* --- PURE DARK MODE (FOCUS) --- */
+body.dark-mode {
+  background: #030303 !important;
+  /* Pure almost-black */
+}
+
+body.dark-mode .fog {
+  display: none !important;
+  /* Hides the fog entirely */
+}
+
+body.dark-mode .sidebar,
+body.dark-mode .reader {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: 1px solid #1a1a1a !important;
+  box-shadow: none !important;
+}
+
+body.dark-mode #chapterTitle,
+body.dark-mode #chapterContent,
+body.dark-mode .title,
+body.dark-mode #chapterIndicator {
+  text-shadow: none !important;
+  /* Removes shadows for crisp reading */
+}
+
+body.dark-mode .nav-btn,
+body.dark-mode .floating-audio {
+  background: transparent !important;
+  border-color: #333 !important;
+  box-shadow: none !important;
+}
+
+body.dark-mode .nav-btn:hover {
+  border-color: var(--bright-red) !important;
+}
+
+/* Fog animation */
+.fog {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: url("images/fog.png") repeat-x;
+  opacity: 0.4;
+  animation: fogMove 120s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+
+@keyframes fogMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-1000px);
+  }
+}
+
+/* Header & Title */
+.title {
+  margin-top: 0;
+  padding-top: 15px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 0 15px var(--blood-red), 2px 2px 5px rgba(0, 0, 0, 0.9);
+  letter-spacing: 10px;
+  margin-bottom: 5px;
+}
+
+/* Controls & Nav Buttons */
+.controls {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+#chapterIndicator {
+  margin: 0 15px;
+  font-size: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.nav-btn {
+  background: rgba(20, 20, 20, 0.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(138, 3, 3, 0.5);
+  color: #fff;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  border-radius: 4px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-btn:hover {
+  border-color: var(--bright-red);
+  background: rgba(58, 5, 5, 0.6);
+  box-shadow: 0 0 15px rgba(255, 34, 34, 0.6);
+  transform: translateY(-2px);
+}
+
+/* --- ADVANCED LAYOUT --- */
+.layout {
+  display: flex;
+  height: calc(100vh - 140px);
+  width: 96%;
+  max-width: 1800px;
+  margin: 0 auto;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sidebar - Maximum Translucency */
+.sidebar {
+  width: 280px;
+  background: rgba(12, 12, 12, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(138, 3, 3, 0.5);
+  border-radius: 4px;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.sidebar h3 {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--bright-red);
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--blood-red);
+  padding-bottom: 10px;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 15px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  font-size: 18px;
+  color: #ddd;
+  letter-spacing: 1px;
+}
+
+.sidebar li:hover {
+  background: rgba(255, 34, 34, 0.15);
+  color: #fff;
+  padding-left: 20px;
+  border-left: 2px solid rgba(255, 34, 34, 0.5);
+}
+
+.sidebar li.active {
+  color: var(--bright-red);
+  border-left: 4px solid var(--bright-red);
+  background: rgba(138, 3, 3, 0.15);
+  font-weight: bold;
+}
+
+/* Reader - Maximum Translucency */
+.reader {
+  flex: 1;
+  background: rgba(12, 12, 12, 0.10);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(80, 80, 80, 0.4);
+  border-radius: 4px;
+  padding: 40px 80px;
+  overflow-y: auto;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+#chapterTitle {
+  font-family: 'Cormorant Garamond', serif;
+  color: #ffffff;
+  margin-top: 0;
+  font-size: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+#chapterContent {
+  margin-top: 30px;
+  line-height: 2.1;
+  font-size: 22px;
+  min-height: 400px;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 1), 0 0 12px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Progress Bar */
+#progressBar {
+  height: 2px;
+  background: var(--bright-red);
+  width: 0%;
+  margin-top: 15px;
+  box-shadow: 0 0 15px var(--bright-red);
+  transition: width 0.6s ease-in-out;
+}
+
+/* Audio Orb */
+.floating-audio {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: rgba(20, 20, 20, 0.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(138, 3, 3, 0.5);
+  color: #aaa;
+  cursor: pointer;
+  transition: all 0.4s;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.floating-audio svg {
+  width: 28px;
+  height: 28px;
+  transition: all 0.3s;
+}
+
+.floating-audio:hover {
+  border-color: #ff2222;
+  color: #fff;
+  transform: scale(1.1) translateY(-5px);
+}
+
+.floating-audio.playing {
+  border-color: var(--bright-red);
+  color: #fff;
+  background: rgba(74, 5, 5, 0.4);
+  animation: floatPulse 2.5s infinite;
+}
+
+@keyframes floatPulse {
+  0% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 0 0 rgba(255, 34, 34, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 20px 5px rgba(255, 34, 34, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 0 0 rgba(255, 34, 34, 0);
+  }
+}
+
+.sound-waves {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mute-cross {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.floating-audio.playing .sound-waves {
+  opacity: 1;
+}
+
+.floating-audio.playing .mute-cross {
+  opacity: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(80, 80, 80, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blood-red);
+}

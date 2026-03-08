@@ -1,0 +1,313 @@
+:root {
+  --blood-red: #8a0303;
+  --bright-red: #ff2222;
+  --dark-bg: #0a0a0a;
+  --text-color: #d1d1d1;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lora', serif;
+  color: var(--text-color);
+  background: url("images/bg1.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+  /* Prevents body scroll, we scroll inside the reader */
+}
+
+/* Dark gradient overlay for better contrast */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.9) 100%);
+  z-index: -1;
+}
+
+/* Fog animation */
+.fog {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: url("images/fog.png") repeat-x;
+  opacity: 0.15;
+  animation: fogMove 120s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes fogMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-1000px);
+  }
+}
+
+/* Header & Title */
+.title {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 52px;
+  color: var(--text-color);
+  text-shadow: 0 0 15px var(--blood-red), 0 0 30px #000;
+  letter-spacing: 3px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  animation: flicker 4s infinite alternate;
+}
+
+@keyframes flicker {
+
+  0%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 15px var(--blood-red);
+  }
+
+  50% {
+    opacity: 0.8;
+    text-shadow: 0 0 5px var(--blood-red);
+  }
+
+  75% {
+    opacity: 0.9;
+    text-shadow: 0 0 25px var(--bright-red);
+  }
+}
+
+/* Layout */
+.layout {
+  display: flex;
+  height: 75vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 34, 34, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.sidebar h3 {
+  font-family: 'Cinzel', serif;
+  color: var(--bright-red);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--blood-red);
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 12px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #222;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  color: #aaa;
+}
+
+.sidebar li:hover {
+  background: rgba(255, 34, 34, 0.1);
+  color: #fff;
+  padding-left: 15px;
+}
+
+.sidebar li.active {
+  color: var(--bright-red);
+  border-left: 3px solid var(--bright-red);
+  font-weight: bold;
+}
+
+/* Reader */
+.reader {
+  flex: 1;
+  background: rgba(5, 5, 5, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(50, 50, 50, 0.5);
+  border-radius: 8px;
+  padding: 40px;
+  overflow-y: auto;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+}
+
+#chapterTitle {
+  font-family: 'Cinzel', serif;
+  color: #fff;
+  margin-top: 0;
+}
+
+#chapterContent {
+  margin-top: 20px;
+  line-height: 2;
+  font-size: 19px;
+  min-height: 400px;
+}
+
+/* Controls */
+.controls {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  font-family: 'Cinzel', serif;
+}
+
+#chapterIndicator {
+  margin: 0 20px;
+  font-size: 18px;
+  color: #888;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid #444;
+  color: #aaa;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  transition: all 0.3s;
+}
+
+.nav-btn:hover {
+  border-color: var(--bright-red);
+  color: var(--bright-red);
+  box-shadow: 0 0 10px rgba(255, 34, 34, 0.3);
+}
+
+/* Progress Bar */
+#progressBar {
+  height: 2px;
+  background: var(--bright-red);
+  width: 0%;
+  margin-top: 10px;
+  box-shadow: 0 0 10px var(--bright-red);
+  transition: width 0.5s ease-in-out;
+}
+
+//* Circular Floating Audio Button */
+.floating-audio {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  /* Makes it a perfect circle */
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #333;
+  color: #777;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.floating-audio svg {
+  width: 26px;
+  height: 26px;
+  transition: all 0.3s;
+}
+
+.floating-audio:hover {
+  border-color: #666;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Playing State */
+.floating-audio.playing {
+  border-color: var(--blood-red);
+  color: var(--bright-red);
+  animation: floatPulse 2s infinite;
+}
+
+@keyframes floatPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 34, 34, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 34, 34, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 34, 34, 0);
+  }
+}
+
+/* Icon Animations */
+.sound-waves {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mute-cross {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.floating-audio.playing .sound-waves {
+  opacity: 1;
+}
+
+.floating-audio.playing .mute-cross {
+  opacity: 0;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 34, 34, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 34, 34, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 34, 34, 0);
+  }
+}
+
+/* Custom Scrollbar for spooky effect */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blood-red);
+}

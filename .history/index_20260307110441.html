@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Whispers in the Dark</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="fog"></div>
+
+  <header>
+    <h1 class="title">Whispers in the Dark</h1>
+    <div class="controls">
+      <button class="nav-btn" onclick="prevChapter()">&#9664; PREV</button>
+      <span id="chapterIndicator"></span>
+      <button class="nav-btn" onclick="nextChapter()">NEXT &#9654;</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <div class="sidebar">
+      <h3>Archives</h3>
+      <ul id="chapterList"></ul>
+    </div>
+
+    <div class="reader">
+      <h2 id="chapterTitle"></h2>
+      <div id="progressBar"></div>
+      <div id="chapterContent"></div>
+    </div>
+  </div>
+
+  <button id="musicToggle" class="floating-audio">
+    <span class="pulse-dot"></span>
+    <span id="audioLabel">AUDIO : MUTED</span>
+  </button>
+
+  <audio id="music" src="music/music_1.mp3"></audio>
+
+  <script src="chapters.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

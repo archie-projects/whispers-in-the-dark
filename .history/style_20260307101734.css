@@ -1,0 +1,135 @@
+body {
+  background: #050505;
+  color: #e0e0e0;
+  font-family: Georgia, serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.title {
+  color: #ff2222;
+  text-align: center;
+  font-size: 48px;
+  text-shadow: 0 0 15px red;
+  animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+
+  0% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: .7
+  }
+
+  100% {
+    opacity: 1
+  }
+
+}
+
+.layout {
+  display: flex;
+  height: 85vh;
+}
+
+.sidebar {
+
+  width: 260px;
+  background: #0a0a0a;
+  border-right: 1px solid #222;
+  padding: 20px;
+  overflow-y: auto;
+
+}
+
+.sidebar li {
+
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #111;
+
+}
+
+.sidebar li:hover {
+
+  background: #111;
+  color: #ff4444;
+
+}
+
+.reader {
+
+  flex: 1;
+  padding: 40px;
+  max-width: 900px;
+  margin: auto;
+  line-height: 1.9;
+  font-size: 19px;
+
+}
+
+#chapterContent {
+
+  margin-top: 20px;
+  min-height: 400px;
+
+}
+
+.controls {
+
+  text-align: center;
+  margin-bottom: 20px;
+
+}
+
+button {
+
+  background: black;
+  border: 1px solid #333;
+  color: #eee;
+  padding: 10px 15px;
+  cursor: pointer;
+
+}
+
+button:hover {
+
+  background: #ff2222;
+
+}
+
+#progressBar {
+
+  height: 5px;
+  background: red;
+  width: 0%;
+  margin-top: 10px;
+
+}
+
+.fog {
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("images/fog.png");
+  opacity: .06;
+  animation: fogMove 80s linear infinite;
+  pointer-events: none;
+
+}
+
+@keyframes fogMove {
+
+  0% {
+    transform: translateX(0)
+  }
+
+  100% {
+    transform: translateX(-1000px)
+  }
+
+}

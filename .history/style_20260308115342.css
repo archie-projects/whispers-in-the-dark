@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Montserrat:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;1,400&family=Merriweather:ital,wght@0,400;1,400&family=Lora:ital,wght@0,400;1,400&family=Roboto:ital,wght@0,400;1,400&display=swap');
+
+:root {
+  --blood-red: #8a0303;
+  --bright-red: #ff2222;
+  --text-color: #ffffff;
+  --reading-font: 'Crimson Text', serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--reading-font);
+  color: var(--text-color);
+  background: url("images/bg3.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+  transition: background-color 0.5s ease;
+}
+
+/* Base dark tint */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+#chapterContent i,
+#chapterContent em {
+  font-style: italic;
+}
+
+#chapterContent b,
+#chapterContent strong {
+  font-weight: bold;
+  color: #ffdddd;
+}
+
+/* PURE DARK MODE (FOCUS) */
+body.dark-mode {
+  background: #030303 !important;
+}
+
+body.dark-mode::before {
+  display: none !important;
+}
+
+body.dark-mode .fog {
+  display: none !important;
+}
+
+body.dark-mode .sidebar,
+body.dark-mode .reader {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+body.dark-mode #chapterTitle,
+body.dark-mode #chapterContent,
+body.dark-mode .title,
+body.dark-mode #chapterIndicator {
+  text-shadow: none !important;
+}
+
+body.dark-mode .nav-btn,
+body.dark-mode .nav-select,
+body.dark-mode .floating-audio {
+  background: transparent !important;
+  border-color: #333 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  text-shadow: none !important;
+}
+
+body.dark-mode .nav-btn::after {
+  display: none !important;
+}
+
+/* Hides power nodes in dark mode */
+body.dark-mode .nav-btn:hover,
+body.dark-mode .nav-select:hover {
+  border-color: var(--bright-red) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Fog animation */
+.fog {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: url("images/fog.png") repeat-x;
+  opacity: 0.4;
+  animation: fogMove 120s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+
+@keyframes fogMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-1000px);
+  }
+}
+
+/* Header & Title */
+.title {
+  margin-top: 0;
+  padding-top: 15px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 0 15px var(--blood-red), 2px 2px 5px rgba(0, 0, 0, 0.9);
+  letter-spacing: 10px;
+  margin-bottom: 5px;
+}
+
+.controls {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+#chapterIndicator {
+  margin: 0 15px;
+  font-size: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* --- ADVANCED VIDEO GAME UI BUTTONS (ASYMMETRICAL BLADE SHAPE) --- */
+.nav-btn,
+.nav-select {
+  background: rgba(15, 15, 15, 0.5);
+  backdrop-filter: blur(8px);
+
+  /* Creates the advanced shape: Round on top-left/bottom-right, sharp on the others */
+  border-radius: 20px 0px 20px 0px;
+
+  /* Flawless continuous outline that traces the shape perfectly */
+  border: 1px solid rgba(138, 3, 3, 0.4);
+  border-bottom: 3px solid rgba(138, 3, 3, 0.8);
+  /* 3D effect base */
+  border-left: 2px solid rgba(138, 3, 3, 0.6);
+  /* 3D side edge */
+
+  color: #fff;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  outline: none;
+  position: relative;
+}
+
+/* Tiny UI "Power Node" detail in the sharp top-right corner */
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 6px;
+  height: 6px;
+  background: rgba(138, 3, 3, 0.4);
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.nav-select {
+  appearance: none;
+  padding-right: 30px;
+  text-align: center;
+}
+
+.nav-select option {
+  background: #111;
+  color: #fff;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Hover State - FULL OUTLINE TRACE & TEXT GLOW */
+.nav-btn:hover,
+.nav-select:hover {
+  background: rgba(20, 5, 5, 0.8);
+
+  /* Illuminates the entire continuous outline flawlessly around the curves and points */
+  border-color: var(--bright-red);
+  border-bottom: 3px solid var(--bright-red);
+  border-left: 2px solid var(--bright-red);
+  transform: translateY(-2px);
+
+  /* Intense red text glow */
+  text-shadow: 0 0 10px var(--bright-red), 0 0 20px var(--blood-red);
+
+  /* Outer glow AND inner glow tracing the exact custom shape */
+  box-shadow: 0 0 15px rgba(255, 34, 34, 0.8), inset 0 0 15px rgba(255, 34, 34, 0.4);
+}
+
+/* Power node lights up on hover */
+.nav-btn:hover::after {
+  background: var(--bright-red);
+  box-shadow: 0 0 8px var(--bright-red);
+}
+
+/* --- ADVANCED LAYOUT --- */
+.layout {
+  display: flex;
+  height: calc(100vh - 140px);
+  width: 96%;
+  max-width: 1800px;
+  margin: 0 auto;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: transparent;
+  border: none;
+  padding: 20px 0;
+  overflow-y: auto;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h3 {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--bright-red);
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--blood-red);
+  padding-bottom: 10px;
+  text-align: center;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.sidebar li {
+  padding: 15px 10px;
+  cursor: pointer;
+  border-bottom: none;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  color: #ddd;
+  letter-spacing: 1px;
+  font-family: var(--reading-font);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* CHAPTER HOVER RED GLOW */
+.sidebar li:hover {
+  background: transparent;
+  color: #fff;
+  padding-left: 20px;
+  border-left: 2px solid var(--bright-red);
+  text-shadow: 0 0 10px var(--bright-red), 0 0 20px var(--blood-red);
+}
+
+.sidebar li.active {
+  color: var(--bright-red);
+  border-left: 4px solid var(--bright-red);
+  background: transparent;
+  font-weight: bold;
+}
+
+/* Copyright Styling */
+.copyright {
+  text-align: center;
+  margin-top: auto;
+  padding-top: 20px;
+  font-size: 13px;
+  color: #888;
+  font-family: 'Montserrat', sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* Reader */
+.reader {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 20px 60px;
+  overflow-y: auto;
+  box-shadow: none;
+}
+
+#chapterTitle {
+  font-family: 'Cormorant Garamond', serif;
+  color: #ffffff;
+  margin-top: 0;
+  font-size: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+#chapterContent {
+  margin-top: 30px;
+  line-height: 2.1;
+  font-size: 22px;
+  min-height: 400px;
+  color: #ffffff;
+  font-family: var(--reading-font);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 1), 0 0 12px rgba(0, 0, 0, 1), 0 0 20px rgba(0, 0, 0, 0.9);
+}
+
+#progressBar {
+  height: 2px;
+  background: var(--bright-red);
+  width: 0%;
+  margin-top: 15px;
+  box-shadow: 0 0 15px var(--bright-red);
+  transition: width 0.6s ease-in-out;
+}
+
+/* Audio Orb - DRAGGABLE */
+.floating-audio {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: rgba(15, 15, 15, 0.2);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(138, 3, 3, 0.5);
+  color: #aaa;
+  cursor: grab;
+  transition: box-shadow 0.3s, border-color 0.3s, background 0.3s;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.floating-audio:active {
+  cursor: grabbing;
+}
+
+.floating-audio svg {
+  width: 28px;
+  height: 28px;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+/* AUDIO HOVER RED GLOW */
+.floating-audio:hover {
+  border-color: var(--bright-red);
+  color: #fff;
+  box-shadow: 0 0 20px var(--bright-red), inset 0 0 10px rgba(255, 34, 34, 0.4);
+}
+
+.floating-audio.playing {
+  border-color: var(--bright-red);
+  color: #fff;
+  background: rgba(74, 5, 5, 0.4);
+  animation: floatPulse 2.5s infinite;
+}
+
+@keyframes floatPulse {
+  0% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 0 0 rgba(255, 34, 34, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 20px 5px rgba(255, 34, 34, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 0 0 rgba(255, 34, 34, 0);
+  }
+}
+
+.sound-waves {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mute-cross {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.floating-audio.playing .sound-waves {
+  opacity: 1;
+}
+
+.floating-audio.playing .mute-cross {
+  opacity: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(80, 80, 80, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blood-red);
+}

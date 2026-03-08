@@ -1,0 +1,293 @@
+:root {
+  --blood-red: #8a0303;
+  --bright-red: #ff2222;
+  --text-color: #f2f2f2;
+  /* Brightened text even more for translucent background */
+}
+
+body {
+  margin: 0;
+  font-family: 'Lora', serif;
+  color: var(--text-color);
+  background: url("images/bg1.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+  transition: background-image 1.5s ease-in-out;
+}
+
+/* Fog animation with screen blend mode */
+.fog {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: url("images/fog.png") repeat-x;
+  opacity: 0.4;
+  animation: fogMove 120s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+
+@keyframes fogMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-1000px);
+  }
+}
+
+/* Header & Title */
+.title {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 52px;
+  color: #ffffff;
+  text-shadow: 0 0 15px var(--blood-red), 2px 2px 5px rgba(0, 0, 0, 0.9);
+  letter-spacing: 5px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+/* --- ADVANCED TRANSLUCENT LAYOUT --- */
+.layout {
+  display: flex;
+  height: calc(100vh - 150px);
+  width: 96%;
+  max-width: 1800px;
+  margin: 0 auto;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sidebar - Sleek Translucent Glass */
+.sidebar {
+  width: 280px;
+  background: rgba(12, 12, 12, 0.75);
+  /* 75% dark transparency */
+  backdrop-filter: blur(6px);
+  /* Soft glass effect, not hazy */
+  border: 1px solid rgba(138, 3, 3, 0.5);
+  border-radius: 4px;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.sidebar h3 {
+  font-family: 'Cinzel', serif;
+  color: var(--bright-red);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--blood-red);
+  padding-bottom: 10px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 15px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  font-size: 16px;
+  color: #ccc;
+  letter-spacing: 1px;
+}
+
+.sidebar li:hover {
+  background: rgba(255, 34, 34, 0.2);
+  color: #fff;
+  padding-left: 20px;
+  border-left: 2px solid rgba(255, 34, 34, 0.5);
+}
+
+.sidebar li.active {
+  color: var(--bright-red);
+  border-left: 4px solid var(--bright-red);
+  background: rgba(138, 3, 3, 0.25);
+  font-weight: bold;
+}
+
+/* Reader - Sleek Translucent Canvas */
+.reader {
+  flex: 1;
+  background: rgba(12, 12, 12, 0.78);
+  /* 78% dark transparency to keep text perfectly legible */
+  backdrop-filter: blur(6px);
+  /* Soft glass effect */
+  border: 1px solid rgba(80, 80, 80, 0.4);
+  border-radius: 4px;
+  padding: 40px 80px;
+  overflow-y: auto;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+#chapterTitle {
+  font-family: 'Cinzel', serif;
+  color: #ffffff;
+  margin-top: 0;
+  font-size: 34px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 15px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+#chapterContent {
+  margin-top: 30px;
+  line-height: 2;
+  font-size: 20px;
+  min-height: 400px;
+  color: var(--text-color);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+  /* This makes the text readable over the background! */
+}
+
+/* Controls & Nav Buttons */
+.controls {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  font-family: 'Cinzel', serif;
+}
+
+#chapterIndicator {
+  margin: 0 30px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.nav-btn {
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(138, 3, 3, 0.5);
+  color: #fff;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-btn:hover {
+  border-color: var(--bright-red);
+  background: rgba(58, 5, 5, 0.9);
+  box-shadow: 0 0 15px rgba(255, 34, 34, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Progress Bar */
+#progressBar {
+  height: 2px;
+  background: var(--bright-red);
+  width: 0%;
+  margin-top: 15px;
+  box-shadow: 0 0 15px var(--bright-red);
+  transition: width 0.6s ease-in-out;
+}
+
+/* Audio Orb */
+.floating-audio {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(4px);
+  border: 1px solid #555;
+  color: #aaa;
+  cursor: pointer;
+  transition: all 0.4s;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.floating-audio svg {
+  width: 28px;
+  height: 28px;
+  transition: all 0.3s;
+}
+
+.floating-audio:hover {
+  border-color: #888;
+  color: #fff;
+  transform: scale(1.1) translateY(-5px);
+}
+
+.floating-audio.playing {
+  border-color: var(--bright-red);
+  color: #fff;
+  background: rgba(74, 5, 5, 0.9);
+  animation: floatPulse 2.5s infinite;
+}
+
+@keyframes floatPulse {
+  0% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 0 0 rgba(255, 34, 34, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 20px 5px rgba(255, 34, 34, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 0 0 rgba(255, 34, 34, 0);
+  }
+}
+
+.sound-waves {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mute-cross {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.floating-audio.playing .sound-waves {
+  opacity: 1;
+}
+
+.floating-audio.playing .mute-cross {
+  opacity: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(80, 80, 80, 0.8);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blood-red);
+}
