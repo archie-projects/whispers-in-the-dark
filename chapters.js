@@ -68,6 +68,60 @@ Buildings he swore were always there now stood abandoned. Cafes missing. Streets
 And the sensation of being watched never left.`
   },
 
+{
+    title: "Chapter 2 - Strange Familiarity",
+    content: `The morning after, Mac drifted through the motions of waking up, but everything felt slightly out of step. The familiar weight of his apartment seemed heavier somehow, like the walls were leaning in closer. The mirror by his door reflected him back just a second too late.
+
+On the way to work, the streets buzzed with people, but their faces blurred into vague smudges. Conversations were hushed, words muffled, like Mac was listening through a thick pane of glass. The bakery on the corner had always had a blue awning. Today, it was red. The newsstand he passed every morning? Gone. Just an empty patch of sidewalk like it had never been there at all.
+
+Buildings weren’t where they should be. Streets stretched longer than they used to. Cafés had different names, different menus in the windows. At one intersection, he stopped completely, staring across the street at a building he swore had been a parking lot just yesterday.
+
+He turned in slow circles, trying to piece together what felt so wrong. His office was still there, standing tall against the skyline, but everything leading up to it felt… rearranged. Subtly. Just enough to make his skin crawl.
+
+Mac rubbed his eyes, blaming it on the lack of sleep. But as he stepped into his office building, the feeling only got worse. Like the air inside was heavier, pressing against his lungs. The sign above the door was off. Newer, maybe? The colors sharper, the font unfamiliar. He couldn’t remember it ever being different, but something in him recoiled as if noticing a stranger wearing familiar clothes.
+
+The receptionist at the front desk looked up and smiled.
+
+Only—it wasn’t her.
+
+Mac knew the receptionist. Had known her for years. But the woman sitting there now was someone else. Someone unfamiliar, though she acted like she wasn’t.
+
+“Morning, Mac,” she said like she’d done it a hundred times before.
+
+He hesitated. “Uh… morning.”
+
+He walked past her, feeling the weight of her gaze on his back. His hands felt clammy. He took the elevator up, watching the numbers climb, trying to ignore the twisting feeling in his stomach.
+
+His floor looked the same. But when he walked to his desk, something made his breath catch in his throat.
+
+His nameplate was missing. 
+And carved faintly into the desk, just under the surface—was a shape. A spiral, maybe. Or just random scratches. But it looked… intentional. Like someone had tried to erase it, badly. 
+
+#And someone else was sitting at his desk.
+
+Folders stacked haphazardly on the surface, papers marked with symbols and dates he didn’t recognize. His name was on them, but the handwriting wasn’t his. Some notes were scribbled in ink so dark it bled through the pages. He thumbed through them, each document stranger than the last—reports from places he’d never worked on, projects he didn’t recall.
+
+When he turned to ask Darcy—who always sat one desk over—she wasn’t there. Instead, an empty chair spun gently, as though someone had just vacated it. Across the office, someone who looked like Karen stood by the window, motionless, staring out into nothing.
+
+The day crawled.
+
+Cafés he passed on his lunch break sat empty behind glass that reflected the sky wrong—grey clouds swirled but didn’t move. One shop had chairs on the ceiling, as if gravity had flipped but left the rest untouched.
+
+And always, just at the corner of his eye, Mac caught glimpses of things—quick, unnatural movements behind windows, dark figures standing too still in the distance. But when he turned to look, nothing remained.
+
+By evening, the weight in his chest hadn’t lifted. As he walked home, every street seemed longer than it should have been, every building slightly altered. Windows in odd places. Streets curving the wrong way.
+
+When he reached his apartment, the door resisted, sticking slightly before giving way. Inside, everything looked as it should—neat, quiet, familiar. Yet the piano bench, pushed out just a few inches too far from the piano, made the hair on his neck rise.
+
+No wind rattled the windows. No street noise seeped in.
+
+Just the silence—thick and watching.
+And then, he remembered something.
+
+`
+  },
+
+
   {
     title: "Chapter 3 — Reality?",
     content: `He moved through the apartment like a man walking into someone else’s life.
