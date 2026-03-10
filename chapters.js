@@ -97,8 +97,6 @@ His floor looked the same. But when he walked to his desk, something made his br
 His nameplate was missing. 
 And carved faintly into the desk, just under the surface—was a shape. A spiral, maybe. Or just random scratches. But it looked… intentional. Like someone had tried to erase it, badly. 
 
-#And someone else was sitting at his desk.
-
 Folders stacked haphazardly on the surface, papers marked with symbols and dates he didn’t recognize. His name was on them, but the handwriting wasn’t his. Some notes were scribbled in ink so dark it bled through the pages. He thumbed through them, each document stranger than the last—reports from places he’d never worked on, projects he didn’t recall.
 
 When he turned to ask Darcy—who always sat one desk over—she wasn’t there. Instead, an empty chair spun gently, as though someone had just vacated it. Across the office, someone who looked like Karen stood by the window, motionless, staring out into nothing.
@@ -124,64 +122,7 @@ And then, he remembered something.
 
   {
     title: "Chapter 3 — Reality?",
-    content: `He moved through the apartment like a man walking into someone else’s life.
-Noticed the clock blinking. 9:17 a.m. His brain clicked.
-Alice’s appointment. Pediatrician. Routine check-up. Sofi had reminded him last night — “Don’t forget, Mac. Nine sharp.”
-His spine straightened. His mouth went dry.
-Sofi. Alice.
-He was…. married. He had a daughter.
-He had a family.
-The realization didn’t come like a whisper or dream. It came like a fist to the chest.
-He turned, slowly, scanning the apartment with fresh eyes — but everything was off.
-No coffee on the counter. No cereal bowls. No school bag dumped by the couch.
-He called out, voice steady at first.
-“Sofi?”
-Nothing.
-“Alice?”
-Silence.
-He moved fast now. Swept through the apartment like a storm. The master bedroom — her side of the closet, empty. No tops. No scarves. No trace of her.
-Bathroom — no makeup bag, no earrings on the counter. Her toothbrush? Gone.
-He bolted to the second bedroom and threw open the door.
-It wasn’t pink. No toys. No twin bed with a cartoon comforter. Just boxes. A broken lamp. Dust on the floor.
-He stood there, unmoving. Cold crept in through his bones.
-This didn’t make sense.
-She was just here. Last night. They had dinner — chicken and rice, Alice asked for ketchup, even though she never used it. Sofi laughed. She was always laughing.
-He opened every drawer, flipped every cushion, searched the walls for photographs that weren’t there.
-It didn’t make sense.
-He grabbed his phone and called the police.
-They arrived twenty minutes later. Two officers. Calm. Professional. Detached.
-Mac answered their questions — name, date of birth, address. Then he told them.
-“I have a wife. Sofi. And a daughter, Alice. They were here last night. They’re gone.”
-They searched the apartment. Top to bottom.
-There were no female clothes. No second toothbrush. No school forms, no birth certificates. Nothing.
-Not a single photo.
-“Sir,” one of them asked gently, “Are you currently taking any medication? For stress? Sleep?”
-“No.” He snapped. “I’m not making this up.”
-“We believe you believe it,” the officer replied carefully.
-They asked him to come down to the station.
-That was when something inside Mac broke.
-He pushed past them and ran.
-He didn’t wait for the elevator. Took the stairs three at a time. Barreled out the gate and into the street, barefoot, shirt clinging to his back.
-He didn’t know where he was running.
-He only knew why.
-He had to find them.
-He had to save them.
-The streets blurred. The sun stabbed down between buildings. His breath burned. Somewhere behind him, a siren howled.
-He turned a corner and stopped .
-Across the intersection, just beyond the green glow of the traffic light — a figure.
-Still. Silent.
-Watching him.
-Not a hallucination. Not a shadow. Not a dream.
-It was there.
-And it was waiting.
-Mac froze in the middle of the street.
-The light was green.
-Tires screeched.
-A horn blared.
-He turned toward the sound just as the vehicle hit him full-force.
-Everything went black.
-His last word was “No.”
-And then—
+    content: `
 He moved through the apartment like a man walking into someone else’s life.
 Noticed the clock blinking. 9:17 a.m. His brain clicked.
 Alice’s appointment. Pediatrician. Routine check-up. Sofi had reminded him last night — “Don’t forget, Mac. Nine sharp.”
