@@ -84,7 +84,6 @@ body.dark-mode .nav-btn::after {
   display: none !important;
 }
 
-/* Hides power nodes in dark mode */
 body.dark-mode .nav-btn:hover,
 body.dark-mode .nav-select:hover {
   border-color: var(--bright-red) !important;
@@ -114,7 +113,7 @@ body.dark-mode .nav-select:hover {
   }
 }
 
-/* Header & Title */
+/* Header & Title - NOW WITH INTENSE RED GLOW */
 .title {
   margin-top: 0;
   padding-top: 15px;
@@ -124,7 +123,8 @@ body.dark-mode .nav-select:hover {
   font-weight: 700;
   text-transform: uppercase;
   color: #ffffff;
-  text-shadow: 0 0 15px var(--blood-red), 2px 2px 5px rgba(0, 0, 0, 0.9);
+  /* Layered red glow combined with a dark drop shadow for depth */
+  text-shadow: 0 0 15px var(--bright-red), 0 0 30px var(--blood-red), 2px 2px 5px rgba(0, 0, 0, 0.9);
   letter-spacing: 10px;
   margin-bottom: 5px;
 }
@@ -151,22 +151,15 @@ body.dark-mode .nav-select:hover {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* --- ADVANCED VIDEO GAME UI BUTTONS (ASYMMETRICAL BLADE SHAPE) --- */
+/* --- ADVANCED VIDEO GAME UI BUTTONS --- */
 .nav-btn,
 .nav-select {
   background: rgba(15, 15, 15, 0.5);
   backdrop-filter: blur(8px);
-
-  /* Creates the advanced shape: Round on top-left/bottom-right, sharp on the others */
   border-radius: 20px 0px 20px 0px;
-
-  /* Flawless continuous outline that traces the shape perfectly */
   border: 1px solid rgba(138, 3, 3, 0.4);
   border-bottom: 3px solid rgba(138, 3, 3, 0.8);
-  /* 3D effect base */
   border-left: 2px solid rgba(138, 3, 3, 0.6);
-  /* 3D side edge */
-
   color: #fff;
   padding: 10px 25px;
   cursor: pointer;
@@ -179,7 +172,6 @@ body.dark-mode .nav-select:hover {
   position: relative;
 }
 
-/* Tiny UI "Power Node" detail in the sharp top-right corner */
 .nav-btn::after {
   content: "";
   position: absolute;
@@ -205,25 +197,17 @@ body.dark-mode .nav-select:hover {
   letter-spacing: 1px;
 }
 
-/* Hover State - FULL OUTLINE TRACE & TEXT GLOW */
 .nav-btn:hover,
 .nav-select:hover {
   background: rgba(20, 5, 5, 0.8);
-
-  /* Illuminates the entire continuous outline flawlessly around the curves and points */
   border-color: var(--bright-red);
   border-bottom: 3px solid var(--bright-red);
   border-left: 2px solid var(--bright-red);
   transform: translateY(-2px);
-
-  /* Intense red text glow */
   text-shadow: 0 0 10px var(--bright-red), 0 0 20px var(--blood-red);
-
-  /* Outer glow AND inner glow tracing the exact custom shape */
   box-shadow: 0 0 15px rgba(255, 34, 34, 0.8), inset 0 0 15px rgba(255, 34, 34, 0.4);
 }
 
-/* Power node lights up on hover */
 .nav-btn:hover::after {
   background: var(--bright-red);
   box-shadow: 0 0 8px var(--bright-red);
@@ -285,7 +269,6 @@ body.dark-mode .nav-select:hover {
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
-/* CHAPTER HOVER RED GLOW */
 .sidebar li:hover {
   background: transparent;
   color: #fff;
@@ -301,7 +284,6 @@ body.dark-mode .nav-select:hover {
   font-weight: bold;
 }
 
-/* Copyright Styling */
 .copyright {
   text-align: center;
   margin-top: auto;
@@ -323,6 +305,7 @@ body.dark-mode .nav-select:hover {
   box-shadow: none;
 }
 
+/* Chapter Title - NOW WITH INTENSE RED GLOW */
 #chapterTitle {
   font-family: 'Cormorant Garamond', serif;
   color: #ffffff;
@@ -330,7 +313,8 @@ body.dark-mode .nav-select:hover {
   font-size: 40px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 15px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.9);
+  /* Added the red glow underneath the title */
+  text-shadow: 0 0 10px var(--bright-red), 0 0 20px var(--blood-red), 2px 2px 8px rgba(0, 0, 0, 1);
 }
 
 #chapterContent {
@@ -384,7 +368,6 @@ body.dark-mode .nav-select:hover {
   pointer-events: none;
 }
 
-/* AUDIO HOVER RED GLOW */
 .floating-audio:hover {
   border-color: var(--bright-red);
   color: #fff;
