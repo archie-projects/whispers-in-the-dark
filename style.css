@@ -42,7 +42,7 @@ body::before {
   color: #ffdddd;
 }
 
-/* PURE DARK MODE (FOCUS) */
+/* --- PURE DARK MODE (FOCUS) --- */
 body.dark-mode {
   background: #030303 !important;
 }
@@ -63,11 +63,18 @@ body.dark-mode .reader {
   backdrop-filter: none !important;
 }
 
-body.dark-mode #chapterTitle,
+/* Keep the reading text flat for focus, but KEEP the title glows */
 body.dark-mode #chapterContent,
-body.dark-mode .title,
 body.dark-mode #chapterIndicator {
   text-shadow: none !important;
+}
+
+body.dark-mode .title {
+  text-shadow: 0 0 15px var(--bright-red), 0 0 30px var(--blood-red), 2px 2px 5px rgba(0, 0, 0, 0.9) !important;
+}
+
+body.dark-mode #chapterTitle {
+  text-shadow: 0 0 10px var(--bright-red), 0 0 20px var(--blood-red), 2px 2px 8px rgba(0, 0, 0, 1) !important;
 }
 
 body.dark-mode .nav-btn,
@@ -140,7 +147,7 @@ body.dark-mode .floating-audio.playing {
   }
 }
 
-/* Header & Title - NOW WITH RED GLOW */
+/* Header & Title - WITH RED GLOW */
 .title {
   margin-top: 0;
   padding-top: 15px;
@@ -340,7 +347,7 @@ body.dark-mode .floating-audio.playing {
   box-shadow: none;
 }
 
-/* Chapter Title - NOW WITH RED GLOW */
+/* Chapter Title - WITH RED GLOW */
 #chapterTitle {
   font-family: 'Cormorant Garamond', serif;
   color: #ffffff;
